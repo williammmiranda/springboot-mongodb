@@ -1,4 +1,4 @@
-package com.williammiranda.workshop.mongodb.services.domain;
+package com.williammiranda.workshop.mongodb.resources.domain;
 
 import com.williammiranda.workshop.mongodb.domain.User;
 import lombok.Data;
