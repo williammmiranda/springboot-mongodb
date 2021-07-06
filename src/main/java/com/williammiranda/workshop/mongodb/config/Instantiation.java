@@ -4,6 +4,7 @@ import com.williammiranda.workshop.mongodb.domain.Post;
 import com.williammiranda.workshop.mongodb.domain.User;
 import com.williammiranda.workshop.mongodb.gateway.database.repository.PostRepository;
 import com.williammiranda.workshop.mongodb.gateway.database.repository.UserRepository;
+import com.williammiranda.workshop.mongodb.resources.domain.AuthorDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
@@ -33,10 +34,11 @@ public class Instantiation implements CommandLineRunner {
         User alex = new User(null, "Alex Green", "alex@gmail.com");
         User bob = new User(null, "Bob Grey", "bob@gmail.com");
 
-        var post1 = new Post(null,sdf.parse("21/03/2021"),"Partiu Viagem", "Estou viajando para São Paulo!", maria);
-        var post2 = new Post(null,sdf.parse("23/03/2021"),"Bom Dia", "Acordei Feliz Hoje!", maria);
-
         userRepository.saveAll(Arrays.asList(maria, alex, bob));
+
+        var post1 = new Post(null,sdf.parse("21/03/2021"),"Partiu Viagem", "Estou viajando para São Paulo!", new AuthorDTO(maria));
+        var post2 = new Post(null,sdf.parse("23/03/2021"),"Bom Dia", "Acordei Feliz Hoje!", new AuthorDTO(maria));
+
         postRepository.saveAll(Arrays.asList(post1, post2));
     }
 }
