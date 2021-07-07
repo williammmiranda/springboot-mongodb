@@ -1,13 +1,16 @@
 package com.williammiranda.workshop.mongodb.domain;
 
 import com.williammiranda.workshop.mongodb.resources.domain.AuthorDTO;
+import com.williammiranda.workshop.mongodb.resources.domain.CommentDTO;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -22,4 +25,6 @@ public class Post implements Serializable {
     private String title;
     private String body;
     private AuthorDTO author;
+
+    private List<CommentDTO> comments = new ArrayList<>();
 }
